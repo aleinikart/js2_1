@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="menu"></div>
+<script src="main.js"></script>
+
+<script src="MenuItem.js"></script>
+<script src="SubMenu.js"></script>
+<script src="Menu.js"></script>
+<script>
+    window.onload = () => {
+        let block = document.getElementById('menu');
+
+        let menu = new Menu('my', 'my', [
+            new MenuItem('/', 'Menu'),
+            new MenuItem('/about', 'About'),
+            new MenuItem('/services', 'Services'),
+            new SubMenu('mysub1', 'Special Info', '/spec', [
+                new MenuItem('/sub1', 'Sub1'),
+                new MenuItem('/sub2', 'Sub2'),
+                new MenuItem('/sub3', 'Sub3'),
+            ]),
+            new MenuItem('/info', 'info')
+        ]);
+        
+        let menu2 = new Menu('myu', 'myu', [
+            new MenuItem('/', 'Menu'),
+            new MenuItem('/info', 'info')
+        ]);
+        
+        
+        block.innerHTML += menu.render();
+        block.innerHTML += menu2.render();
+        
+    }
+    
+
+</script>
+</body>
+</html>
